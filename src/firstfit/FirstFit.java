@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by lenovo on 2017/10/29.
+ * Created by Qindingkang on 2017/10/29.
  */
 public class FirstFit {
 
