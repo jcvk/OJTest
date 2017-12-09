@@ -14,26 +14,51 @@ public class RequestPageMemory {
     private static int MEMORY_NUM=4;
 
     private int[] optionArray=new int[320];
-//    private int[] optionArray=new int[]{7,0,1,2,0,3,0,4,2,3,0,3,2,1,2,0,1,7,0,1};
+    private int[] testArray=new int[320];
 
     public RequestPageMemory() {
         initOptionArray();
-        System.out.println("数组长度："+optionArray.length);
+//        System.out.println("数组长度："+optionArray.length);
 //        for (int i=0;i<optionArray.length;i++){
 //            System.out.println(optionArray[i]);
 //        }
+
+//        for (int i=0;i<testArray.length;i++){
+//
+//            if (i%10==0){
+//                System.out.print("\n"+testArray[i]+" ");
+//            }else {
+//                System.out.print(testArray[i]+" ");
+//            }
+//        }
+//        System.out.print("\n");
+//
+//        for (int i=0;i<optionArray.length;i++){
+//
+//            if (i%10==0){
+//                System.out.print("\n"+optionArray[i]+" ");
+//            }else {
+//                System.out.print(optionArray[i]+" ");
+//            }
+//        }
+//        System.out.print("\n\n\n");
+
         OPT();
         FIFO();
         LRU();
 
     }
 
+    /**
+     * 初始化随机数组
+     */
     private void initOptionArray(){
 
         Random random=new Random(10);
         int m=random.nextInt(320);//不包括
+        testArray[0]=m;
         optionArray[0]=m/10;
-        System.out.println(m/10);
+//        System.out.println(m/10);
 
         //上面已经产生了一个指令次序所以这里只需要产生319次就可以了
         for (int i=0;i<319;i++){
@@ -68,6 +93,7 @@ public class RequestPageMemory {
                 }
 
             }
+            testArray[i+1]=m;
             optionArray[i+1]=m/10;
         }
     }
@@ -82,7 +108,12 @@ public class RequestPageMemory {
 
         for (int i=0;i<optionArray.length;i++){
 
-            showCupPageList(cpuPageList);
+//            if (i%5==0){
+//                System.out.print("\n");
+//                showCupPageList(cpuPageList);
+//            }else {
+//                showCupPageList(cpuPageList);
+//            }
 
             //内存块还有空闲的时候，直接添加
             if (cpuPageList.size()<MEMORY_NUM){
@@ -122,9 +153,88 @@ public class RequestPageMemory {
                 }
             }
         }
-        showCupPageList(cpuPageList);
+//        showCupPageList(cpuPageList);
         System.out.println("OPT缺页率 = "+(failTimes/(successfulTimes+failTimes)));
     }
+
+
+    private void FIFO(){
+
+        double successfulTimes=0.0;
+        double failTimes=0.0;
+
+        List<Integer> cpuPageList=new ArrayList<>();
+        for (int i=0;i<optionArray.length;i++) {
+
+//            if (i%5==0){
+//                System.out.print("\n");
+//                showCupPageList(cpuPageList);
+//            }else {
+//                showCupPageList(cpuPageList);
+//            }
+            if (cpuPageList.size() < MEMORY_NUM) {
+                failTimes++;
+                if (isInCupPage(cpuPageList, optionArray[i])) {
+                    cpuPageList.add(optionArray[i]);
+                }
+            } else {
+                if (isInCupPage(cpuPageList, optionArray[i])) {
+                    //通过FIFO算法删除再cpu中的页面，添加新的页面
+                    //因为这是一个按顺序放入的，最先放数字为1
+                    failTimes++;
+                    cpuPageList.remove(0);
+                    cpuPageList.add(optionArray[i]);
+                } else {
+                    successfulTimes++;
+                }
+            }
+        }
+//        showCupPageList(cpuPageList);
+        System.out.println("FIFO缺页率 = "+(failTimes/(successfulTimes+failTimes)));
+
+
+    }
+
+    private void LRU(){
+
+        double successfulTimes=0.0;
+        double failTimes=0.0;
+        List<Integer> cpuPageList=new ArrayList<>();
+        for (int i=0;i<optionArray.length;i++) {
+
+//            if (i%5==0){
+//                System.out.print("\n");
+//                showCupPageList(cpuPageList);
+//            }else {
+//                showCupPageList(cpuPageList);
+//            }
+////            System.out.print("插入的页 = " + anOptionArray);
+//            showCupPageList(cpuPageList);
+            if (cpuPageList.size() < MEMORY_NUM) {
+                failTimes++;
+                if (isInCupPage(cpuPageList, optionArray[i])) {
+                    cpuPageList.add(optionArray[i]);
+                }
+            } else {
+                if (isInCupPage(cpuPageList, optionArray[i])) {
+                    //通过LRU算法将最近最久未使用的页面删除
+                    failTimes++;
+                    cpuPageList.remove(0);
+                    cpuPageList.add(optionArray[i]);
+
+                } else {//如果没有产生却页那么需要对cpu栈中的页面进行从新排序
+                    successfulTimes++;
+                    cpuPageList.remove((Integer) optionArray[i]);
+                    cpuPageList.add(optionArray[i]);
+                }
+            }
+        }
+//        showCupPageList(cpuPageList);
+        System.out.println("LRU缺页率 = "+(failTimes/(successfulTimes+failTimes)));
+
+
+    }
+
 
     /**
      * 判断是否会产生缺页
@@ -148,77 +258,11 @@ public class RequestPageMemory {
     private void showCupPageList(List<Integer> cpuPageList){
 
 
-        System.out.println("---------------------");
-
         for (Integer cpuPage : cpuPageList){
             System.out.print(cpuPage+"  ");
         }
 
-        System.out.println("\n");
-
-    }
-
-    private void FIFO(){
-
-        double successfulTimes=0.0;
-        double failTimes=0.0;
-
-        List<Integer> cpuPageList=new ArrayList<>();
-        for (int anOptionArray : optionArray) {
-            System.out.print("插入的页 = " + anOptionArray);
-            showCupPageList(cpuPageList);
-            if (cpuPageList.size() < MEMORY_NUM) {
-                failTimes++;
-                if (isInCupPage(cpuPageList, anOptionArray)) {
-                    cpuPageList.add(anOptionArray);
-                }
-            } else {
-                if (isInCupPage(cpuPageList, anOptionArray)) {
-                    //通过FIFO算法删除再cpu中的页面，添加新的页面
-                    //因为这是一个按顺序放入的，最先放数字为1
-                    failTimes++;
-                    cpuPageList.remove(0);
-                    cpuPageList.add(anOptionArray);
-                } else {
-                    successfulTimes++;
-                }
-            }
-        }
-        showCupPageList(cpuPageList);
-        System.out.println("FIFO缺页率 = "+(failTimes/(successfulTimes+failTimes)));
-
-
-    }
-
-    private void LRU(){
-
-        double successfulTimes=0.0;
-        double failTimes=0.0;
-        List<Integer> cpuPageList=new ArrayList<>();
-        for (int anOptionArray : optionArray) {
-            System.out.print("插入的页 = " + anOptionArray);
-            showCupPageList(cpuPageList);
-            if (cpuPageList.size() < MEMORY_NUM) {
-                failTimes++;
-                if (isInCupPage(cpuPageList, anOptionArray)) {
-                    cpuPageList.add(anOptionArray);
-                }
-            } else {
-                if (isInCupPage(cpuPageList, anOptionArray)) {
-                    //通过LRU算法将最近最久未使用的页面删除
-                    failTimes++;
-                    cpuPageList.remove(0);
-                    cpuPageList.add(anOptionArray);
-
-                } else {//如果没有产生却页那么需要对cpu栈中的页面进行从新排序
-                    successfulTimes++;
-                    cpuPageList.remove((Integer) anOptionArray);
-                    cpuPageList.add(anOptionArray);
-                }
-            }
-        }
-        showCupPageList(cpuPageList);
-        System.out.println("LRU缺页率 = "+(failTimes/(successfulTimes+failTimes)));
+        System.out.print("  |  ");
 
 
     }

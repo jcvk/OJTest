@@ -25,6 +25,16 @@ public class Memory {
         this.length = length;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
     public Memory getNextMemory() {
         return nextMemory;
     }
