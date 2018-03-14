@@ -9,25 +9,17 @@ import java.util.concurrent.locks.Lock;
 public class Question18 {
 
     public static void main(String[] args) {
-//        int[] array={2,2,2,2,4,5,9,10};
-//        Question18 question18=new Question18();
-//        int result= question18.findLastEqual(array,2);
-//        System.out.println(result);
+        int[] array={2,2,2,2,4,5,9,10};
+        Question18 question18=new Question18();
+        question18.quickSort(array,0,array.length-1);
+        System.out.println(666);
 
-        try {
-            int i=3;
-            i=i/0;
-            System.out.println(i+"gggg");
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
-            System.out.println("666");
-        }
+
     }
 
     void quickSort(int[] num,int start,int end){
 
-        if (start>=end){//这个区间只有一个数就不需要递归了
+        if (start>end){//这个区间只有一个数就不需要递归了
             return;
         }
         int s=start;
