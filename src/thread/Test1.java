@@ -6,34 +6,28 @@ package thread;
 public class Test1 {
 
     public static void main(String[] args) throws InterruptedException {
-        Thread a=new Thread(new Runnable() {
+
+        Thread thread= new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i=0;i<10000;i++){
-                    System.out.println(Thread.currentThread().getId()+"  "+i);
+                while (!Thread.interrupted()){
 
-                    if (i==200){
-                        try {
-                            System.out.println("暂停");
-                            Thread.sleep(2000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+                    for (int i=0;i<20;i++){
+                        System.out.println("正在运行");
+                    }
+
+                    try {
+                        Thread.sleep(6000);
+                    } catch (InterruptedException e) {
+                        System.out.println("抛出了中断异常");
+                        System.out.println("做了一些处理");
                     }
                 }
             }
         });
-
-        Thread b=new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int j=0;j<10000;j++){
-                    System.out.println(Thread.currentThread().getId()+"  "+j);
-                }
-            }
-        });
-        a.start();
+        thread.start();
         Thread.sleep(2000);
-        b.start();
+        thread.interrupt();
+
     }
 }

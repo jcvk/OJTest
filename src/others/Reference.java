@@ -42,7 +42,7 @@ public class Reference {
     }
 
 
-    class People{
+    static class People{
 
         private String name;
 
@@ -50,9 +50,35 @@ public class Reference {
             this.name = name;
         }
 
-        public void getName(){
+        public final void getName(){
             System.out.println(name);
         }
+
+        static void fun(){
+            System.out.println(123);
+        }
+
+        private boolean fun1(){
+            System.out.println(798);
+            return false;
+        }
+    }
+
+    static class Student extends People{
+
+        public Student(String name) {
+            super(name);
+        }
+
+        static void fun(){
+            System.out.println(123);
+        }
+
+
+
+
+
+
     }
 
 
