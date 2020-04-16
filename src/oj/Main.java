@@ -6,11 +6,18 @@ import java.util.Scanner;
  */
 public class Main {
 
-    public static void main(String[] args) {
-        Scanner cin=new Scanner(System.in);
-        int a;
-        while (cin.hasNext()){
-            a=cin.nextInt();
+    public int solution(int num){
+        int count = 0;
+        while(num!=0){
+            num = num & (num-1);
+            count++;
         }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int i=sc.nextInt();
+        System.out.println(new Main().solution(i));
     }
 }
