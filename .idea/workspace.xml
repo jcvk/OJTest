@@ -1,41 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6d9492ba-beb6-41c3-bb7d-7f704b12f7c4" name="Default" comment="请求页面调度">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question11.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question12.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question13.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question14.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question15.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question16.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question17.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question18.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question19.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question20.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question21.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question22.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question23.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question24.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question25.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question26.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question27.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question28.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question29.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question30.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question31.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question32.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question33.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question5.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question6.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question7.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question8.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tencent/Question9.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oj/Question27.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/oj/Question27.java" afterDir="false" />
+    <list default="true" id="6d9492ba-beb6-41c3-bb7d-7f704b12f7c4" name="Default" comment="更新">
+      <change beforePath="$PROJECT_DIR$/src/tencent/Question33.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tencent/Question33.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +75,11 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -701,7 +673,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512829393026</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="更新">
+      <created>1639018458936</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1639018458936</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -769,7 +748,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="请求页面调度" />
-    <option name="LAST_COMMIT_MESSAGE" value="请求页面调度" />
+    <MESSAGE value="更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
