@@ -27,6 +27,7 @@ public class Question33 {
     }
 
     public static void main(String[] args) {
+        System.out.println("master独有");
         int[] nums = {1};
         for (int num : nums) {
             int res = new Question33().search(nums,0);
